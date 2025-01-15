@@ -1,8 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { ChevronRight, Upload, Brain, FileText, School, Clock, Shield, ChartBar, Pencil, Link } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  const [animatedWord, setAnimatedWord] = useState("Fast");
+  const words = ["Fast", "Fair", "Simple"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimatedWord((current) => {
+        const currentIndex = words.indexOf(current);
+        return words[(currentIndex + 1) % words.length];
+      });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const features = [
     {
       title: "Unique Questions Generation",
@@ -56,22 +72,81 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Navigation Bar */}
+      <nav className="border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <span className="text-xl font-bold">Proctor AI</span>
+              <NavigationMenuList className="ml-8 hidden md:flex">
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2" href="#product">
+                    Product
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2" href="#teams">
+                    Teams
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2" href="#individuals">
+                    Individuals
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink className="px-3 py-2" href="#pricing">
+                    Pricing
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </div>
+            <div className="flex items-center gap-4">
+              <Button variant="ghost">Request a demo</Button>
+              <Button variant="ghost">Log in</Button>
+              <Button>Get Proctor AI free</Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="py-20 px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center space-y-8 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl mx-auto">
-            Revolutionizing Academic Evaluation with AI
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Proctor AI streamlines bulk evaluation, generates unique questions, detects forgery, and delivers instant feedback—all while integrating seamlessly with your LMS.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button size="lg" className="hover-scale">
-              Try Proctor AI for Free <ChevronRight className="ml-2" />
-            </Button>
-            <Button size="lg" variant="outline" className="hover-scale">
-              Schedule a Demo <ChevronRight className="ml-2" />
-            </Button>
+      <section className="py-20 px-4 md:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left space-y-8">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
+                Grade Assignment
+                <span className="block text-primary transition-all duration-300">
+                  [{animatedWord}]
+                </span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-xl">
+                Write. Plan. Collaborate. With a little help from AI.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button size="lg" className="hover-scale">
+                  Try Proctor AI for Free
+                </Button>
+                <Button size="lg" variant="outline" className="hover-scale">
+                  Request a demo
+                </Button>
+              </div>
+              <div className="pt-8">
+                <p className="text-sm text-muted-foreground mb-4">Trusted by teams at</p>
+                <div className="flex gap-8 items-center">
+                  <span className="text-muted-foreground font-semibold">Company 1</span>
+                  <span className="text-muted-foreground font-semibold">Company 2</span>
+                  <span className="text-muted-foreground font-semibold">Company 3</span>
+                  <span className="text-muted-foreground font-semibold">Company 4</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square bg-muted rounded-lg">
+                {/* Placeholder for hero image */}
+              </div>
+            </div>
           </div>
         </div>
       </section>
