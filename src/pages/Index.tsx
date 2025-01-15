@@ -34,6 +34,11 @@ const Index = () => {
       title: "AI Grading",
       description: "Let AI analyze and grade submissions with consistent criteria",
       icon: Brain
+    },
+    {
+      title: "Get Instant Reports",
+      description: "Access detailed analytics and insights immediately after grading",
+      icon: FileText
     }
   ];
 
@@ -121,7 +126,7 @@ const Index = () => {
                 <span className="block text-primary transition-all duration-300">
                   [{animatedWord}]
                 </span>
-                with AI <Sparkles className="inline-block w-8 h-8 text-yellow-400" />
+                with AI <Sparkles className="inline-block w-6 h-6 text-black align-top" />
               </h1>
               <p className="text-xl text-muted-foreground max-w-xl">
                 Efficiently evaluate and analyze handwritten assignments in seconds with Proctor AI.
@@ -144,11 +149,16 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative flex justify-center items-center gap-4">
+              <img 
+                src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736939112516x452796899782004400/Writing-3--Streamline-Milano.png?_gl=1*144stai*_gcl_au*MjEzOTIzMjUzNS4xNzM0NjY4Mzgz*_ga*MTkzMjQ5Nzg5OC4xNzExMTk0Mzcw*_ga_BFPVR2DEE2*MTczNjkxNTcxMi4xNDYuMS4xNzM2OTM4NjAzLjMuMC4w"
+                alt="Student writing"
+                className="w-[350px] h-auto rounded-lg shadow-xl transform scale-x-[-1]"
+              />
               <img 
                 src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736938607195x638189399219338600/Teacher-Grading-Papersprojects--Streamline-Milano.png?_gl=1*1i49n8o*_gcl_au*MjEzOTIzMjUzNS4xNzM0NjY4Mzgz*_ga*MTkzMjQ5Nzg5OC4xNzExMTk0Mzcw*_ga_BFPVR2DEE2*MTczNjkxNTcxMi4xNDYuMS4xNzM2OTM4NjAzLjMuMC4w"
                 alt="Teacher grading papers"
-                className="w-full h-auto rounded-lg shadow-xl"
+                className="w-[400px] h-auto rounded-lg shadow-xl"
               />
             </div>
           </div>
