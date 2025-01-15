@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartBar, MessageSquare, Shield, Brain } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const NewSections = () => {
   const metrics = [
@@ -12,20 +18,52 @@ const NewSections = () => {
 
   const faqs = [
     {
-      question: "How does Proctor AI detect forgery?",
-      answer: "Proctor AI uses advanced AI algorithms to analyze handwriting patterns, content similarity, and image authenticity, ensuring reliable forgery detection."
+      question: "How does Proctor AI detect forgery in assignments?",
+      answer: "Proctor AI uses advanced AI algorithms to compare handwriting, images, and content across submissions. It detects similarities and provides detailed reports to identify potential forgery or plagiarism, ensuring academic integrity."
     },
     {
-      question: "Is my data secure?",
-      answer: "Yes, we implement enterprise-grade security measures and encryption to protect all your data. We are compliant with educational data protection standards."
+      question: "Can Proctor AI integrate with our existing LMS?",
+      answer: "Yes! Proctor AI seamlessly integrates with popular Learning Management Systems like Google Classroom allowing educators to use it within their existing workflows."
+    },
+    {
+      question: "Is the data uploaded to Proctor AI secure?",
+      answer: "Absolutely. Proctor AI follows strict data privacy protocols, including end-to-end encryption and GDPR compliance, to ensure your data is safe and secure."
     },
     {
       question: "What types of content can Proctor AI evaluate?",
-      answer: "Proctor AI can evaluate handwritten assignments, typed submissions, mathematical equations, diagrams, and multiple-choice questions."
+      answer: "Proctor AI can evaluate various types of content, including handwritten assignments, scanned documents, typed essays, and even images or charts embedded in assignments."
     },
     {
-      question: "Can Proctor AI integrate with my LMS?",
-      answer: "Yes, Proctor AI offers seamless integration with major Learning Management Systems through our API and dedicated plugins."
+      question: "How does Proctor AI save time for educators?",
+      answer: "Proctor AI automates grading by analyzing assignments in bulk, generating instant feedback, and providing detailed reports. This reduces manual effort and frees up valuable time for educators to focus on teaching."
+    },
+    {
+      question: "Can Proctor AI handle bulk evaluations?",
+      answer: "Yes! Proctor AI is designed to handle large volumes of submissions simultaneously, making it ideal for schools, universities, and organizations managing hundreds of assignments at a time."
+    },
+    {
+      question: "How accurate is Proctor AI in handwriting and content analysis?",
+      answer: "Proctor AI achieves over 90% accuracy in handwriting analysis, content similarity detection, and forgery identification, thanks to its advanced AI and machine learning models."
+    },
+    {
+      question: "Does Proctor AI provide detailed feedback for students?",
+      answer: "Yes, Proctor AI generates instant feedback, including rubrics and insights tailored to the assignment. This helps students understand their performance and improve their learning outcomes."
+    },
+    {
+      question: "Is Proctor AI suitable for organizations outside education?",
+      answer: "Absolutely! While Proctor AI is tailored for educators, organizations can also use it for document verification, employee training evaluations, and more."
+    },
+    {
+      question: "What are the pricing options for Proctor AI?",
+      answer: "We offer flexible pricing plans based on your individual, institution's or organization's needs. Contact us for a personalized quote or to discuss your requirements."
+    },
+    {
+      question: "Does Proctor AI support multilingual evaluation?",
+      answer: "Yes, Proctor AI supports multiple languages, making it suitable for diverse educational and organizational environments worldwide. It supports popular languages like English, German, French, Italian, Portuguese, Hindi, Spanish, and Thai."
+    },
+    {
+      question: "How can I try Proctor AI?",
+      answer: "You can use for a free to see how Proctor AI can transform your evaluation process. Visit Proctor AI to get started!"
     }
   ];
 
@@ -93,18 +131,16 @@ const NewSections = () => {
       <section className="py-20 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <Card key={index}>
-                <CardHeader>
-                  <CardTitle className="text-xl">{faq.question}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </CardContent>
-              </Card>
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 
