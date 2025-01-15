@@ -10,22 +10,40 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const WaitingListForm = () => {
   const [email, setEmail] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send this to your backend
-    console.log("Email submitted:", email);
-    toast({
-      title: "Successfully joined waiting list!",
-      description: "We'll notify you when Proctor AI launches.",
-    });
-    setEmail("");
-    setIsOpen(false);
+    setIsLoading(true);
+    
+    try {
+      const { error } = await supabase
+        .from('waiting_list')
+        .insert([{ email }]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Successfully joined waiting list!",
+        description: "We'll notify you when Proctor AI launches.",
+      });
+      setEmail("");
+      setIsOpen(false);
+    } catch (error) {
+      toast({
+        title: "Error joining waiting list",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -48,7 +66,9 @@ const WaitingListForm = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <Button type="submit" className="w-full">Submit</Button>
+          <Button type="submit" className="w-full h-8" disabled={isLoading}>
+            {isLoading ? "Submitting..." : "Submit"}
+          </Button>
         </form>
       </DialogContent>
     </Dialog>
