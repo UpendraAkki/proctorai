@@ -10,16 +10,16 @@ const Navigation = () => (
           <NavigationMenu className="ml-8 hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink className="px-3 py-2" href="#product">Product</NavigationMenuLink>
+                <NavigationMenuLink className="px-3 py-2" href="#features">Features</NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className="px-3 py-2" href="#teams">Teams</NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink className="px-3 py-2" href="#individuals">Individuals</NavigationMenuLink>
+                <NavigationMenuLink className="px-3 py-2" href="#how-it-works">How It Works</NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink className="px-3 py-2" href="#pricing">Pricing</NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink className="px-3 py-2" href="#faq">FAQ</NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
