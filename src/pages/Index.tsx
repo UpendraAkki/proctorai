@@ -1,40 +1,41 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight, Upload, Brain, FileText, School, Clock, Shield, Chart, Pencil, Link } from "lucide-react";
+import { ChevronRight, Upload, Brain, FileText, School, Clock, Shield, ChartBar, Pencil, Link } from "lucide-react";
 
-const Index = () => {
-  const features = [
-    {
-      title: "Unique Questions Generation",
-      description: "AI-crafted questions tailored to ensure originality and avoid repetition",
-      icon: Brain
-    },
-    {
-      title: "Bulk Evaluation",
-      description: "Evaluate hundreds of submissions in minutes with AI-powered analysis",
-      icon: FileText
-    },
-    {
-      title: "Time Savings",
-      description: "Reduce manual effort with automated workflows and smart processing",
-      icon: Clock
-    },
-    {
-      title: "Forgery Detection",
-      description: "Detect image, handwriting, and content similarity with unparalleled accuracy",
-      icon: Shield
-    },
-    {
-      title: "Instant Reports",
-      description: "Get detailed insights and analytics at the click of a button",
-      icon: Chart
-    },
-    {
-      title: "Handwriting Analysis",
-      description: "Analyze handwriting patterns to detect originality and ensure authenticity",
-      icon: Pencil
-    }
-  ];
+// ... keep existing code (features array until Chart icon usage)
+
+const features = [
+  {
+    title: "Unique Questions Generation",
+    description: "AI-crafted questions tailored to ensure originality and avoid repetition",
+    icon: Brain
+  },
+  {
+    title: "Bulk Evaluation",
+    description: "Evaluate hundreds of submissions in minutes with AI-powered analysis",
+    icon: FileText
+  },
+  {
+    title: "Time Savings",
+    description: "Reduce manual effort with automated workflows and smart processing",
+    icon: Clock
+  },
+  {
+    title: "Forgery Detection",
+    description: "Detect image, handwriting, and content similarity with unparalleled accuracy",
+    icon: Shield
+  },
+  {
+    title: "Instant Reports",
+    description: "Get detailed insights and analytics at the click of a button",
+    icon: ChartBar
+  },
+  {
+    title: "Handwriting Analysis",
+    description: "Analyze handwriting patterns to detect originality and ensure authenticity",
+    icon: Pencil
+  }
+];
 
   const steps = [
     {
