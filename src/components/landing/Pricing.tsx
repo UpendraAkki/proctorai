@@ -12,9 +12,11 @@ const Pricing = () => {
       price: "$0",
       description: "For individuals to get started with basic evaluation tools",
       features: [
+        { name: "10 Evaluations/month", included: true },
         { name: "Simple Evaluation", included: true },
         { name: "LMS management", included: true },
         { name: "Report Generations", included: true },
+        { name: "1 GB storage", included: true },
         { name: "Forgery Detections", included: false },
         { name: "AI Rubrics Generation", included: false }
       ],
@@ -27,14 +29,34 @@ const Pricing = () => {
       priceDetail: "per month",
       description: "For teams that need advanced features and priority support",
       features: [
-        { name: "Everything in Free, plus:", included: true },
+        { name: "Everything in Free plan", included: true },
+        { name: "Unlimited Evaluations", included: true },
         { name: "Improved Evaluation", included: true },
         { name: "Bulk Evaluation", included: true },
-        { name: "Forgery Detections", included: true }
+        { name: "Forgery Detections", included: true },
+        { name: "AI Rubrics Generation", included: true },
+        { name: "5GB storage", included: true }
       ],
       buttonText: "Get started",
       buttonVariant: "default" as const,
       popular: true
+    },
+    {
+      name: "Institution",
+      price: "Custom",
+      description: "For organizations that need enterprise-grade features and support",
+      features: [
+        { name: "Everything in Plus plan", included: true },
+        { name: "Unlimited Storage", included: true },
+        { name: "Unlimited Evaluations", included: true },
+        { name: "Institution Integration", included: true },
+        { name: "Priority Support", included: true },
+        { name: "Organization Dashboard", included: true },
+        { name: "Organization Growth Metrics", included: true },
+        { name: "Training", included: true }
+      ],
+      buttonText: "Contact sales",
+      buttonVariant: "outline" as const
     }
   ];
 
@@ -46,7 +68,7 @@ const Pricing = () => {
           <p className="text-lg text-muted-foreground">Choose the plan that's right for you</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <Card key={index} className={`relative ${plan.popular ? 'border-primary' : ''}`}>
               {plan.popular && (
