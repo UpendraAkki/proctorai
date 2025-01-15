@@ -19,6 +19,24 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const steps = [
+    {
+      title: "Create Assignment",
+      description: "Create and customize assignments with AI-powered question generation",
+      icon: Pencil
+    },
+    {
+      title: "Upload Submissions",
+      description: "Upload student submissions in bulk for evaluation",
+      icon: Upload
+    },
+    {
+      title: "AI Grading",
+      description: "Let AI analyze and grade submissions with consistent criteria",
+      icon: Brain
+    }
+  ];
+
   const features = [
     {
       title: "Unique Questions Generation",
@@ -52,27 +70,8 @@ const Index = () => {
     }
   ];
 
-  const steps = [
-    {
-      title: "Upload Submissions",
-      description: "Upload assignments, exams, or any content for evaluation",
-      icon: Upload
-    },
-    {
-      title: "AI Analysis",
-      description: "Let Proctor AI analyze and detect similarities, generate rubrics",
-      icon: Brain
-    },
-    {
-      title: "Get Reports",
-      description: "Instantly download actionable insights and detailed reports",
-      icon: FileText
-    }
-  ];
-
   return (
     <div className="min-h-screen">
-      {/* Navigation Bar */}
       <nav className="border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -146,15 +145,16 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-muted rounded-lg">
-                {/* Placeholder for hero image */}
-              </div>
+              <img 
+                src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736938607195x638189399219338600/Teacher-Grading-Papersprojects--Streamline-Milano.png?_gl=1*1i49n8o*_gcl_au*MjEzOTIzMjUzNS4xNzM0NjY4Mzgz*_ga*MTkzMjQ5Nzg5OC4xNzExMTk0Mzcw*_ga_BFPVR2DEE2*MTczNjkxNTcxMi4xNDYuMS4xNzM2OTM4NjAzLjMuMC4w"
+                alt="Teacher grading papers"
+                className="w-full h-auto rounded-lg shadow-xl"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-4 md:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -196,7 +196,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 px-4 md:px-6 lg:px-8 bg-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold">
