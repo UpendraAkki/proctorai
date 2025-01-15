@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Check, X } from "lucide-react";
 import { useState } from "react";
 
 const Pricing = () => {
@@ -9,70 +9,32 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: "Free",
-      price: billingInterval === "monthly" ? "$0" : "$0",
-      description: "For individuals to organize personal projects and life",
+      price: "$0",
+      description: "For individuals to get started with basic evaluation tools",
       features: [
-        "Collaborative workspace",
-        "Integrate with Slack, GitHub & more",
-        "Basic page analytics",
-        "7 day page history",
-        "Invite 10 guests"
+        { name: "Simple Evaluation", included: true },
+        { name: "LMS management", included: true },
+        { name: "Report Generations", included: true },
+        { name: "Forgery Detections", included: false },
+        { name: "AI Rubrics Generation", included: false }
       ],
-      buttonText: "Sign up",
-      buttonVariant: "outline"
+      buttonText: "Get started",
+      buttonVariant: "outline" as const
     },
     {
       name: "Plus",
-      price: billingInterval === "monthly" ? "$10" : "$8",
-      priceDetail: "per seat/month",
-      description: "For small teams and professionals to work together",
+      price: "$49",
+      priceDetail: "per month",
+      description: "For teams that need advanced features and priority support",
       features: [
-        "Everything in Free +",
-        "Unlimited blocks for teams",
-        "Unlimited file uploads",
-        "30 day page history",
-        "Invite 100 guests",
-        "Custom websites",
-        "Custom automations",
-        "Charts & dashboards"
+        { name: "Everything in Free, plus:", included: true },
+        { name: "Improved Evaluation", included: true },
+        { name: "Bulk Evaluation", included: true },
+        { name: "Forgery Detections", included: true }
       ],
       buttonText: "Get started",
-      buttonVariant: "default",
+      buttonVariant: "default" as const,
       popular: true
-    },
-    {
-      name: "Business",
-      price: billingInterval === "monthly" ? "$15" : "$12",
-      priceDetail: "per seat/month",
-      description: "For growing businesses to streamline teamwork",
-      features: [
-        "Everything in Plus +",
-        "SAML SSO",
-        "Private teamspaces",
-        "Bulk PDF export",
-        "Advanced page analytics",
-        "90 day page history",
-        "Invite 250 guests"
-      ],
-      buttonText: "Get started",
-      buttonVariant: "outline"
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      description: "For organizations to operate with scalability, control, and security",
-      features: [
-        "Everything in Business +",
-        "User provisioning (SCIM)",
-        "Advanced security & controls",
-        "Audit log",
-        "Customer success manager",
-        "Workspace analytics",
-        "Security & Compliance integrations",
-        "Invite 250 guests"
-      ],
-      buttonText: "Contact Sales",
-      buttonVariant: "outline"
     }
   ];
 
@@ -82,27 +44,9 @@ const Pricing = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, transparent pricing</h2>
           <p className="text-lg text-muted-foreground">Choose the plan that's right for you</p>
-          <div className="flex items-center justify-center mt-6 space-x-4">
-            <Button 
-              variant={billingInterval === "monthly" ? "default" : "outline"}
-              onClick={() => setBillingInterval("monthly")}
-            >
-              Pay monthly
-            </Button>
-            <Button 
-              variant={billingInterval === "yearly" ? "default" : "outline"}
-              onClick={() => setBillingInterval("yearly")}
-              className="relative"
-            >
-              Pay yearly
-              <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">
-                save 20%
-              </span>
-            </Button>
-          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <Card key={index} className={`relative ${plan.popular ? 'border-primary' : ''}`}>
               {plan.popular && (
@@ -121,14 +65,18 @@ const Pricing = () => {
                 <p className="text-sm text-muted-foreground mt-4">{plan.description}</p>
               </CardHeader>
               <CardContent>
-                <Button className="w-full mb-8" variant={plan.buttonVariant as "default" | "outline"}>
+                <Button className="w-full mb-8" variant={plan.buttonVariant}>
                   {plan.buttonText}
                 </Button>
                 <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center text-sm">
-                      <ChevronRight className="h-4 w-4 text-primary mr-2" />
-                      {feature}
+                      {feature.included ? (
+                        <Check className="h-4 w-4 text-green-500 mr-2" />
+                      ) : (
+                        <X className="h-4 w-4 text-red-500 mr-2" />
+                      )}
+                      {feature.name}
                     </li>
                   ))}
                 </ul>

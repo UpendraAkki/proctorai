@@ -179,7 +179,7 @@ const NewSections = () => {
               <img 
                 src="public/lovable-uploads/b2f90fac-8e2f-4449-90f4-40f6e2cf731e.png"
                 alt="Students collaborating"
-                className="w-full max-w-[500px] h-auto rounded-lg"
+                className="w-full max-w-[400px] h-auto rounded-lg"
               />
             </div>
           </div>
