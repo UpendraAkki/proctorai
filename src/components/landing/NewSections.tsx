@@ -177,8 +177,8 @@ const NewSections = () => {
             </div>
             <div className="relative flex justify-center">
               <img 
-                src="public/lovable-uploads/6d101693-4795-4f6b-88f5-aef7a48fb689.png"
-                alt="Illustration"
+                src="public/lovable-uploads/b2f90fac-8e2f-4449-90f4-40f6e2cf731e.png"
+                alt="Students collaborating"
                 className="w-full max-w-[500px] h-auto rounded-lg"
               />
             </div>
