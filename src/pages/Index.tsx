@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
-import { ChevronRight, Upload, Brain, FileText, School, Clock, Shield, ChartBar, Pencil, Link } from "lucide-react";
+import { ChevronRight, Upload, Brain, FileText, School, Clock, Shield, ChartBar, Pencil, Link, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Index = () => {
-  const [animatedWord, setAnimatedWord] = useState("Fast");
-  const words = ["Fast", "Fair", "Simple"];
+  const [animatedWord, setAnimatedWord] = useState("Faster");
+  const words = ["Faster", "Smarter", "Fair"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -118,13 +118,14 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-left space-y-8">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-                Grade Assignment
+                Grade
                 <span className="block text-primary transition-all duration-300">
                   [{animatedWord}]
                 </span>
+                with AI <Sparkles className="inline-block w-8 h-8 text-yellow-400" />
               </h1>
               <p className="text-xl text-muted-foreground max-w-xl">
-                Write. Plan. Collaborate. With a little help from AI.
+                Efficiently evaluate and analyze handwritten assignments in seconds with Proctor AI.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button size="lg" className="hover-scale">
