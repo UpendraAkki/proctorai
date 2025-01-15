@@ -7,6 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import WaitingListForm from "./WaitingListForm";
+import { Clock, CheckCircle2, Files } from "lucide-react";
 
 const NewSections = () => {
   const metrics = [
@@ -165,12 +167,21 @@ const NewSections = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 md:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Ready to Transform Academic Evaluation?</h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="hover-scale">Try Proctor AI for Free</Button>
-            <Button size="lg" variant="outline" className="hover-scale">Request a Demo</Button>
+      <section className="py-20 px-4 md:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h2 className="text-4xl font-bold">Ready to Transform Academic Evaluation?</h2>
+              <p className="text-lg text-muted-foreground">Join our waiting list and be the first to experience the future of grading.</p>
+              <WaitingListForm />
+            </div>
+            <div className="relative flex justify-center">
+              <img 
+                src="public/lovable-uploads/6d101693-4795-4f6b-88f5-aef7a48fb689.png"
+                alt="Illustration"
+                className="w-full max-w-[500px] h-auto rounded-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
