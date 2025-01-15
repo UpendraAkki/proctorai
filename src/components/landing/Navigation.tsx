@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
+import WaitingListForm from "./WaitingListForm";
 
 const Navigation = () => (
   <nav className="border-b">
@@ -25,9 +25,7 @@ const Navigation = () => (
           </NavigationMenu>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="ghost">Request a demo</Button>
-          <Button variant="ghost">Log in</Button>
-          <Button>Get Proctor AI free</Button>
+          <WaitingListForm />
         </div>
       </div>
     </div>

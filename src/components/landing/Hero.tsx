@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
+import WaitingListForm from "./WaitingListForm";
 
 const Hero = () => {
   const [animatedWord, setAnimatedWord] = useState("Faster");
@@ -33,8 +33,7 @@ const Hero = () => {
               Efficiently evaluate and analyze handwritten assignments in seconds with Proctor AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="hover-scale">Try Proctor AI for Free</Button>
-              <Button size="lg" variant="outline" className="hover-scale">Request a demo</Button>
+              <WaitingListForm />
             </div>
             <div className="pt-8">
               <p className="text-sm text-muted-foreground mb-4">Trusted by teams at</p>
