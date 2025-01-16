@@ -78,7 +78,7 @@ const Terms = () => {
               <p>
                 For questions about these Terms of Service, please contact us at:
                 <br />
-                Email: legal@proctoraiapp.com
+                Email: upendra@proctorai.io
               </p>
             </section>
           </div>

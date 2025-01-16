@@ -75,7 +75,7 @@ const Privacy = () => {
               <p>
                 If you have any questions about this Privacy Policy, please contact us at:
                 <br />
-                Email: privacy@proctoraiapp.com
+                Email: upendra@proctorai.io
               </p>
             </section>
           </div>

@@ -72,18 +72,31 @@ const Pricing = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, transparent pricing</h2>
           <p className="text-lg text-muted-foreground">Choose the plan that's right for you</p>
-          <div className="flex justify-center gap-4 mt-6">
+          <div className="flex justify-center gap-2 mt-6">
             <Button
-              variant={billingInterval === "monthly" ? "default" : "outline"}
+              variant={billingInterval === "monthly" ? "default" : "ghost"}
               onClick={() => setBillingInterval("monthly")}
+              className={`rounded-full px-6 py-2 ${
+                billingInterval === "monthly" 
+                  ? "bg-primary text-primary-foreground shadow-sm" 
+                  : "bg-muted/50 hover:bg-muted"
+              }`}
             >
-              Monthly billing
+              Pay monthly
             </Button>
             <Button
-              variant={billingInterval === "yearly" ? "default" : "outline"}
+              variant={billingInterval === "yearly" ? "default" : "ghost"}
               onClick={() => setBillingInterval("yearly")}
+              className={`rounded-full px-6 py-2 ${
+                billingInterval === "yearly" 
+                  ? "bg-primary text-primary-foreground shadow-sm" 
+                  : "bg-muted/50 hover:bg-muted"
+              }`}
             >
-              Annual billing {billingInterval === "yearly" && `(Save ${savingsPercentage}%)`}
+              Pay yearly{" "}
+              <span className="ml-1 text-sm font-normal">
+                (save {savingsPercentage}%)
+              </span>
             </Button>
           </div>
         </div>
