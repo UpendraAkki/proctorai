@@ -49,26 +49,22 @@ const Hero = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Files className="w-5 h-5 text-primary" />
-                  <span className="text-muted-foreground font-semibold">1000+ Assignments</span>
+                  <span className="text-muted-foreground font-semibold">1000+ Assignments Graded</span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="relative flex justify-center items-center gap-4 max-w-full overflow-hidden">
-            <div className="relative w-full max-w-[350px] aspect-[3/4]">
-              <img 
-                src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736939112516x452796899782004400/Writing-3--Streamline-Milano.png"
-                alt="Student writing"
-                className="absolute inset-0 w-full h-full object-cover rounded-lg transform scale-x-[-1]"
-              />
-            </div>
-            <div className="relative w-full max-w-[400px] aspect-[3/4]">
-              <img 
-                src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736938607195x638189399219338600/Teacher-Grading-Papersprojects--Streamline-Milano.png"
-                alt="Teacher grading papers"
-                className="absolute inset-0 w-full h-full object-cover rounded-lg"
-              />
-            </div>
+          <div className="relative flex justify-center items-center gap-4">
+            <img 
+              src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736939112516x452796899782004400/Writing-3--Streamline-Milano.png"
+              alt="Student writing"
+              className="w-[150px] sm:w-[200px] rounded-lg transform scale-x-[-1]"
+            />
+            <img 
+              src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736938607195x638189399219338600/Teacher-Grading-Papersprojects--Streamline-Milano.png"
+              alt="Teacher grading papers"
+              className="w-[200px] sm:w-[300px] rounded-lg"
+            />
           </div>
         </div>
       </div>

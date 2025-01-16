@@ -70,10 +70,10 @@ const NewSections = () => {
   ];
 
   const roadmap = [
-    "Multilingual Question Generation",
-    "Advanced Rubric Customization",
-    "Real-time Collaboration Tools",
-    "Enhanced Analytics Dashboard"
+    "AI Rubrics Generation",
+    "Video Assignments",
+    "Evaluations for Exams, Projects, Articles e.t.c",
+    "Assignment Companion for Handicaps"
   ];
 
   return (
