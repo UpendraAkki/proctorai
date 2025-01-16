@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import WaitingListForm from "./WaitingListForm";
 
 const Footer = () => (
   <footer className="py-12 px-4 md:px-6 lg:px-8 border-t">
