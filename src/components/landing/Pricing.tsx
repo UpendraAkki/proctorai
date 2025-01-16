@@ -2,9 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronRight, Check, X } from "lucide-react";
 import { useState } from "react";
+import WaitingListForm from "./WaitingListForm";
 
 const Pricing = () => {
   const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">("monthly");
+  const [showWaitingList, setShowWaitingList] = useState(false);
+
+  const monthlyPrice = 59;
+  const yearlyPrice = 49;
+  const savingsPercentage = Math.round(((monthlyPrice - yearlyPrice) / monthlyPrice) * 100);
 
   const pricingPlans = [
     {
@@ -77,7 +83,7 @@ const Pricing = () => {
               variant={billingInterval === "yearly" ? "default" : "outline"}
               onClick={() => setBillingInterval("yearly")}
             >
-              Annual billing
+              Annual billing {billingInterval === "yearly" && `(Save ${savingsPercentage}%)`}
             </Button>
           </div>
         </div>
@@ -101,10 +107,8 @@ const Pricing = () => {
                 <p className="text-sm text-muted-foreground mt-4">{plan.description}</p>
               </CardHeader>
               <CardContent>
-                <Button className="w-full mb-8" variant={plan.buttonVariant}>
-                  {plan.buttonText}
-                </Button>
-                <ul className="space-y-3">
+                <WaitingListForm />
+                <ul className="space-y-3 mt-8">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center text-sm">
                       {feature.included ? (
