@@ -5,6 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import Navigation from "@/components/landing/Navigation";
 import Footer from "@/components/landing/Footer";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -14,14 +15,46 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for contacting us. We'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          from: "Proctor AI Contact Form <onboarding@resend.dev>",
+          to: ["upendra@proctorai.io", "virgil@proctorai.io"],
+          subject: `New Contact Form Submission: ${formData.subject}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Subject:</strong> ${formData.subject}</p>
+            <p><strong>Message:</strong></p>
+            <p>${formData.message}</p>
+          `
+        }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent",
+        description: "Thank you for contacting us. We'll get back to you soon!",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -31,7 +64,7 @@ const Contact = () => {
         <div className="max-w-2xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
           <p className="text-lg text-muted-foreground mb-8 text-center">
-            Have questions about Proctor AI? We're here to help! Fill out the form below and we'll get back to you as soon as possible.
+            Have questions about Proctor AI? We're here to help! Contact us at upendra@proctorai.io or virgil@proctorai.io, or fill out the form below.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -85,8 +118,8 @@ const Contact = () => {
               />
             </div>
 
-            <Button type="submit" className="w-full">
-              Send Message
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </div>
