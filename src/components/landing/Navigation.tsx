@@ -15,9 +15,9 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">
             <img 
-              src="public/lovable-uploads/60c9e505-3d89-4aaa-88da-08d0dab38ae0.png" 
+              src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736994810080x309177236220420350/LOGO.jpg?_gl=1*1r0ttmm*_gcl_au*MjEzOTIzMjUzNS4xNzM0NjY4Mzgz*_ga*MTkzMjQ5Nzg5OC4xNzExMTk0Mzcw*_ga_BFPVR2DEE2*MTczNjk5NDQwNi4xNDcuMC4xNzM2OTk0NDA3LjU5LjAuMA.." 
               alt="Proctor AI Logo" 
-              className="w-8 h-8 rounded-md"
+              className="w-6 h-6 rounded-md"
             />
             <span className="text-xl font-bold">Proctor AI</span>
             <NavigationMenu className="ml-8 hidden md:flex">

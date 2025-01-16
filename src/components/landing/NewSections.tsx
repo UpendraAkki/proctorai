@@ -177,7 +177,7 @@ const NewSections = () => {
             </div>
             <div className="relative flex justify-center">
               <img 
-                src="public/lovable-uploads/b2f90fac-8e2f-4449-90f4-40f6e2cf731e.png"
+                src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736994803258x432062546469425400/Student-Active-1--Streamline-Milano.png?_gl=1*1elcq3t*_gcl_au*MjEzOTIzMjUzNS4xNzM0NjY4Mzgz*_ga*MTkzMjQ5Nzg5OC4xNzExMTk0Mzcw*_ga_BFPVR2DEE2*MTczNjk5NDQwNi4xNDcuMC4xNzM2OTk0NDA3LjU5LjAuMA.."
                 alt="Students collaborating"
                 className="w-full max-w-[400px] h-auto rounded-lg"
               />

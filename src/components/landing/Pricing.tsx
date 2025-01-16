@@ -4,7 +4,7 @@ import { ChevronRight, Check, X } from "lucide-react";
 import { useState } from "react";
 
 const Pricing = () => {
-  const [billingInterval, setBillingInterval] = useState("monthly");
+  const [billingInterval, setBillingInterval] = useState<"monthly" | "yearly">("monthly");
 
   const pricingPlans = [
     {
@@ -25,8 +25,8 @@ const Pricing = () => {
     },
     {
       name: "Plus",
-      price: "$49",
-      priceDetail: "per month",
+      price: billingInterval === "monthly" ? "$59" : "$49",
+      priceDetail: `per month${billingInterval === "yearly" ? ", billed annually" : ""}`,
       description: "For teams that need advanced features and priority support",
       features: [
         { name: "Everything in Free plan", included: true },
@@ -66,6 +66,20 @@ const Pricing = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, transparent pricing</h2>
           <p className="text-lg text-muted-foreground">Choose the plan that's right for you</p>
+          <div className="flex justify-center gap-4 mt-6">
+            <Button
+              variant={billingInterval === "monthly" ? "default" : "outline"}
+              onClick={() => setBillingInterval("monthly")}
+            >
+              Monthly billing
+            </Button>
+            <Button
+              variant={billingInterval === "yearly" ? "default" : "outline"}
+              onClick={() => setBillingInterval("yearly")}
+            >
+              Annual billing
+            </Button>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
