@@ -22,23 +22,34 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke('send-contact-email', {
-        body: {
-          from: "Proctor AI Contact Form <onboarding@resend.dev>",
-          to: ["upendra@proctorai.io", "virgil@proctorai.io"],
-          subject: `New Contact Form Submission: ${formData.subject}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${formData.name}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Subject:</strong> ${formData.subject}</p>
-            <p><strong>Message:</strong></p>
-            <p>${formData.message}</p>
-          `
-        }
+      const emailBody = `
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Subject: ${formData.subject}
+        Message: ${formData.message}
+      `;
+
+      // Using EmailJS service
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'YOUR_SERVICE_ID',
+          template_id: 'YOUR_TEMPLATE_ID',
+          user_id: 'YOUR_USER_ID',
+          template_params: {
+            to_email: 'upendra@proctorai.io, virgil@proctorai.io',
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+          },
+        }),
       });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error('Failed to send email');
 
       toast({
         title: "Message Sent",

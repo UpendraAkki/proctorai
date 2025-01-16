@@ -16,12 +16,16 @@ const Footer = () => {
     }
   };
 
+  const goToHome = () => {
+    navigate('/');
+  };
+
   return (
     <footer className="py-12 px-4 md:px-6 lg:px-8 border-t">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start mb-12">
           <div className="mb-8 md:mb-0">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 cursor-pointer" onClick={goToHome}>
               <img 
                 src="https://9e38803f74ddb504334f22284cd158ed.cdn.bubble.io/f1736994810080x309177236220420350/LOGO.jpg?_gl=1*1r0ttmm*_gcl_au*MjEzOTIzMjUzNS4xNzM0NjY4Mzgz*_ga*MTkzMjQ5Nzg5OC4xNzExMTk0Mzcw*_ga_BFPVR2DEE2*MTczNjk5NDQwNi4xNDcuMC4xNzM2OTk0NDA3LjU5LjAuMA.." 
                 alt="Proctor AI Logo" 
